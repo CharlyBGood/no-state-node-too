@@ -12,8 +12,10 @@ body {
 
 .nav-container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    margin: 0;
+    padding: .5em;
     background-color: #2e2b2b;
 }
 
@@ -24,16 +26,36 @@ body {
     letter-spacing: .2em;
 }
 
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex: 1;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
     padding: 1em;
     background-color: #212120;
     color: #ebe0d3;
 }
 
 .form-title, .form-content, .form-btn, label {
-    width: 60%;
+    width: 80%;
     margin: .3em auto;
+}
+
+.links-table, th {
+    margin: 1em auto;
+    padding: 0 1em;
+    
+}
+
+table {
+    text-align: center;
+    color: #ebe0d3;
 }

@@ -11,33 +11,36 @@
 <body>
     <nav class="nav-container">
         <a href="/"><h1>NoStateNode</h1></a>
+        <img src="./img/lunaticoin.png" alt="horse coin" width="80">
     </nav>
-    <form action="" class="form-container">
-        <label for="title">Write a title</label>
-        <input type="text" name="title" id="form-title" class="form-title">
-        <label for="content">Share content</label>
-        <input type="url" name="content" id="form-content" class="form-content">
-        <button class="form-btn">
-            <i class="fas fa-share-square"></i>
-            Add link
-        </button>
-    </form>
-    <table>
-        <thead>
-            <tr>
-                <th>Resource</th>
-                <th>Link</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-    
+    <div class="container">
+        <main>
+            <form id="links-form" action="" class="form-container">
+                <label for="form-title">Write a title</label>
+                <input type="text" name="form-title" id="form-title" class="form-title">
+                <label for="form-content">Share content</label>
+                <input type="url" name="form-content" id="form-content" class="form-content">
+                <button class="form-btn" id="form-btn">
+                    <i class="fas fa-share-square"></i>
+                    Add link
+                </button>
+            </form>
+        </main>
+        <aside>
+            <table id="links-table" class="links-table">
+                <thead>
+                    <tr>
+                        <th>Resource</th>
+                        <th>Link</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    
+                </tbody>
+            </table>
+        </aside>
+    </div>   
+    <script src="main.js"></script>
 </body>
 </html>

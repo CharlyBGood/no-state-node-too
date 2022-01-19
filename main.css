@@ -5,9 +5,9 @@
 body {
     padding: 0;
     margin: 0;
-    max-width: 100%;
-    height: auto;
+    max-height: 100%;
     background-color: #212121;
+    color: #ebe0d3;
 }
 
 .nav-container {
@@ -34,6 +34,7 @@ body {
     /* width: 80%; */
     margin: 0 auto;
     font-size: 1.1em;
+    /* height: 100vh; */
 }
 
 .main-container {
@@ -46,7 +47,7 @@ body {
     width: 100%;
     padding: 1em;
     background-color: #212120;
-    color: #ebe0d3;
+    
 }
 
 .form-title, .form-content, .form-btn, label {
@@ -61,7 +62,7 @@ body {
 
 table {
     text-align: center;
-    color: #ebe0d3;
+    
 }
 
 .table-body a {
@@ -72,6 +73,19 @@ table {
     background-color: #2e2e2e;
     margin: .5em auto;
     border-radius: .6em;
+}
+
+footer {
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: grey;
 }
 
 @media screen and ( max-width: 500px ) {

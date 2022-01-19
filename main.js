@@ -47,17 +47,17 @@ function sendForm(event) {
 function inserRowLinksTable(linksFormData) {
     let newLinksRowRef = linksTableRef.insertRow(-1);
     
-    let newLinksCellRef = newLinksRowRef.insertCell(0);
-    newLinksCellRef.textContent = linksFormData.get('form-title');
+    // let newLinksCellRef = newLinksRowRef.insertCell(0);
+    // newLinksCellRef.textContent = linksFormData.get('form-title');
 
-    newLinksCellRef = newLinksRowRef.insertCell(1);
+    newLinksCellRef = newLinksRowRef.insertCell(0);
     // newLinksCellRef.textContent = linksFormData.get('form-content');
     let linkAdded = document.createElement('a');
     linkAdded.href = linksFormData.get('form-content');
-    linkAdded.textContent = linksFormData.get('form-content');
+    linkAdded.textContent = linksFormData.get('form-title');
     linkAdded.target = '_blank';
     newLinksCellRef.appendChild(linkAdded);
 
-    newLinksCellRef = newLinksRowRef.insertCell(2);
+    newLinksCellRef = newLinksRowRef.insertCell(1);
     newLinksCellRef.textContent = "button";
 }

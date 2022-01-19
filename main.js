@@ -13,9 +13,9 @@
 
 
 // let linksForm = document.getElementById('links-form');
-// linksForm.addEventListener('submit', addFormLinks);
+// linksForm.addEventListener('submit', addlinksForm);
 
-// function addFormLinks(ev) {
+// function addlinksForm(ev) {
 //     ev.preventDefault();
 //     let transactionFormData = new FormData(linksForm);
 //     let newLinksRow = tableBody.insertRow(-1);
@@ -27,12 +27,37 @@
 
 //  -------------------------------
 
-const formLinks = document.getElementById('links-form');
+const linksForm = document.getElementById('links-form');
 
-formLinks.addEventListener('submit', sendForm);
+// const formTitle = document.getElementById('form-title');
+
+// const formContent = document.getElementById('form-content');
+
+let linksTableRef = document.getElementById('table-body');
+
+linksForm.addEventListener('submit', sendForm);
 
 function sendForm(event) {
     event.preventDefault();
-    console.log(event);
-    alert('formulario enviado');
+    let linksFormData = new FormData(linksForm);
+    inserRowLinksTable(linksFormData);
+    
+}
+
+function inserRowLinksTable(linksFormData) {
+    let newLinksRowRef = linksTableRef.insertRow(-1);
+    
+    let newLinksCellRef = newLinksRowRef.insertCell(0);
+    newLinksCellRef.textContent = linksFormData.get('form-title');
+
+    newLinksCellRef = newLinksRowRef.insertCell(1);
+    // newLinksCellRef.textContent = linksFormData.get('form-content');
+    let linkAdded = document.createElement('a');
+    linkAdded.href = linksFormData.get('form-content');
+    linkAdded.textContent = linksFormData.get('form-content');
+    linkAdded.target = '_blank';
+    newLinksCellRef.appendChild(linkAdded);
+
+    newLinksCellRef = newLinksRowRef.insertCell(2);
+    newLinksCellRef.textContent = "button";
 }

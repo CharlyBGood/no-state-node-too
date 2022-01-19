@@ -14,28 +14,28 @@
         <img src="./img/lunaticoin.png" alt="horse coin" width="80">
     </nav>
     <div class="container">
-        <main>
-            <form id="links-form" action="" class="form-container">
+        <main class="main-container">
+            <form id="links-form" class="form-container">
                 <label for="form-title">Write a title</label>
-                <input type="text" name="form-title" id="form-title" class="form-title">
+                <input type="text" name="form-title" id="form-title" class="form-title" required>
                 <label for="form-content">Share content</label>
-                <input type="url" name="form-content" id="form-content" class="form-content">
+                <input type="url" name="form-content" id="form-content" class="form-content" required>
                 <button class="form-btn" id="form-btn">
                     <i class="fas fa-share-square"></i>
                     Add link
                 </button>
             </form>
         </main>
-        <aside>
+        <aside class="table-container">
             <table id="links-table" class="links-table">
                 <thead>
                     <tr>
-                        <th>Resource</th>
-                        <th>Link</th>
-                        <th>Actions</th>
+                        <th>RESOURCE</th>
+                        <th>LINK</th>
+                        <th>ACTIONS</th>
                     </tr>
                 </thead>
-                <tbody id="table-body">
+                <tbody id="table-body" class="table-body">
                     
                 </tbody>
             </table>

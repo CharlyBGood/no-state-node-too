@@ -1,13 +1,20 @@
+:root {
+    --soft-black: #2e2b2b;
+    --dark-black: #212121;
+    --wheat: #e0d6c4;
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
+    font-family: 'Source Code Pro', monospace;
     padding: 0;
     margin: 0;
     max-height: 100%;
-    background-color: #212121;
-    color: #ebe0d3;
+    background-color: var(--dark-black);
+    color: var(--wheat);
 }
 
 .nav-container {
@@ -16,11 +23,12 @@ body {
     align-items: center;
     max-width: 100%;
     padding: .5em;
-    background-color: #2e2b2b;
+    background-color: var(--soft-black);
 }
 
-.nav-container a {
-    color: #ebe0d3;
+.nav-container a, h1 {
+    font-size: 1em;
+    color: var(--wheat);
     padding: .3em;
     text-decoration: none;
     letter-spacing: .2em;
@@ -28,17 +36,17 @@ body {
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: flex-start;
     flex: 1;
-    /* width: 80%; */
+    width: 80%;
     margin: 0 auto;
-    font-size: 1.1em;
-    /* height: 100vh; */
+    font-size: .9em;
 }
 
 .main-container {
-    margin: .5em auto;
+    margin: .5em 0;
+    flex: .4;
 }
 
 .form-container {
@@ -46,13 +54,16 @@ body {
     flex-direction: column;
     width: 100%;
     padding: 1em;
-    background-color: #212120;
+    background-color: var(--soft-black);
     
 }
 
 .form-title, .form-content, .form-btn, label {
     width: 100%;
     margin: .3em auto;
+    padding: .3em;
+    background-color: var(--dark-black);
+    color: var(--wheat);
 }
 
 .links-table, th {
@@ -70,14 +81,17 @@ table {
 }
 
 .table-container {
-    background-color: #2e2e2e;
-    margin: .5em auto;
+    background-color: var(--soft-black);
+    margin: .5em 0;
     border-radius: .6em;
+    flex: .4;
 }
 
 footer {
+    background-color: var(--soft-black);
     text-align: center;
     margin: 0;
+    padding: 0;
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -85,16 +99,23 @@ footer {
 
 footer a {
     text-decoration: none;
-    color: grey;
+    color: #ada7a7;
+}
+
+footer p {
+    color: var(--wheat);
+    margin: 0;
 }
 
 @media screen and ( max-width: 500px ) {
     .container {
         display: flex;
         flex-direction: column;
-    }
-
-    .main-container {
+        align-items: center;
         width: 80%;
     }
+
+    .main-container, .table-container {
+        width: 80%;
+    } 
 }

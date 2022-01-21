@@ -1,32 +1,3 @@
-// select button
-// let formBtn = document.getElementById('form-btn');
-
-// select table to fill 
-// let linksTable = document.getElementById('links-table');
-
-
-// let formTitle = document.getElementById('form-title');
-// let formContent = document.getElementById('form-content');
-
-// let tableBody = document.getElementById('table-body');
-
-
-
-// let linksForm = document.getElementById('links-form');
-// linksForm.addEventListener('submit', addlinksForm);
-
-// function addlinksForm(ev) {
-//     ev.preventDefault();
-//     let transactionFormData = new FormData(linksForm);
-//     let newLinksRow = tableBody.insertRow(-1);
-//     let newLinksCell = newLinksRow.insertCell(0);
-    
-// }
-
-
-
-//  -------------------------------
-
 const linksForm = document.getElementById('links-form');
 
 // const formTitle = document.getElementById('form-title');
@@ -37,13 +8,17 @@ let linksTableRef = document.getElementById('table-body');
 
 linksForm.addEventListener('submit', sendForm);
 
+
+
+
+// convertir contenido de formulario en FormData()
 function sendForm(event) {
     event.preventDefault();
     let linksFormData = new FormData(linksForm);
-    inserRowLinksTable(linksFormData);
-    
+    inserRowLinksTable(linksFormData);    
 }
 
+// añadir FormData a la tabla en celdas nuevas
 function inserRowLinksTable(linksFormData) {
     let newLinksRowRef = linksTableRef.insertRow(-1);
     
@@ -59,5 +34,6 @@ function inserRowLinksTable(linksFormData) {
     newLinksCellRef.appendChild(linkAdded);
 
     newLinksCellRef = newLinksRowRef.insertCell(1);
+    
     newLinksCellRef.textContent = "button";
 }

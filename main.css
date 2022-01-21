@@ -2,6 +2,7 @@
     --soft-black: #2e2b2b;
     --dark-black: #212121;
     --wheat: #e0d6c4;
+    --orange-wheat: #f0ab2a;
 }
 
 * {
@@ -19,10 +20,9 @@ body {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     max-width: 100%;
-    padding: .5em;
     background-color: var(--soft-black);
 }
 
@@ -32,6 +32,7 @@ body {
     padding: .3em;
     text-decoration: none;
     letter-spacing: .2em;
+    text-shadow: 3px 2px 2px #ababab;
 }
 
 .container {
@@ -69,16 +70,14 @@ body {
 .links-table, th {
     margin: 1em auto;
     padding: 0 1em;
-}
-
-table {
     text-align: center;
-    
 }
 
 .table-body a {
+    color: var(--orange-wheat);
     text-decoration: none;
 }
+
 
 .table-container {
     background-color: var(--soft-black);

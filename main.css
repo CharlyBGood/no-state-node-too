@@ -56,15 +56,21 @@ body {
     width: 100%;
     padding: 1em;
     background-color: var(--soft-black);
-    
+    border-radius: .6em;
 }
 
-.form-title, .form-content, .form-btn, label {
+.form-title, .form-content, label {
     width: 100%;
-    margin: .3em auto;
+    margin: .5em auto;
     padding: .3em;
     background-color: var(--dark-black);
     color: var(--wheat);
+}
+
+button {
+    background-color: var(--soft-black);
+    color: var(--wheat);
+    cursor: pointer;
 }
 
 .links-table, th {

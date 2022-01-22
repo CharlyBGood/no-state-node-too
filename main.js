@@ -34,6 +34,8 @@ function inserRowLinksTable(linksFormData) {
     newLinksCellRef.appendChild(linkAdded);
 
     newLinksCellRef = newLinksRowRef.insertCell(1);
+    let btnAdded = document.createElement('button');
+    btnAdded.textContent = 'edit'
+    newLinksCellRef.appendChild(btnAdded);
     
-    newLinksCellRef.textContent = "button";
 }

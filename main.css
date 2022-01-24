@@ -27,12 +27,12 @@ body {
 }
 
 .nav-container a, h1 {
-    font-size: 1em;
+    font-size: 1.2em;
     color: var(--wheat);
     padding: .3em;
     text-decoration: none;
     letter-spacing: .2em;
-    text-shadow: 3px 2px 2px #ababab;
+    text-shadow: 2px 2px 2px #5a5959;
 }
 
 .container {
@@ -59,7 +59,7 @@ body {
     border-radius: .6em;
 }
 
-.form-title, .form-content, label {
+.form-title, .form-content {
     width: 100%;
     margin: .5em auto;
     padding: .3em;
@@ -73,17 +73,28 @@ button {
     cursor: pointer;
 }
 
-.links-table, th {
+.links-table {
+    width: 100%;
     margin: 1em auto;
-    padding: 0 1em;
     text-align: center;
 }
+
+/* th {
+    
+} */
 
 .table-body a {
     color: var(--orange-wheat);
     text-decoration: none;
 }
 
+.table-body button {
+    margin: .4em;
+}
+
+.table-body {
+    width: 60%;
+}
 
 .table-container {
     background-color: var(--soft-black);
@@ -121,6 +132,8 @@ footer p {
     }
 
     .main-container, .table-container {
-        width: 80%;
+        display: flex;
+        justify-content: center;
+        width: 100%;
     } 
 }

@@ -8,6 +8,9 @@ let linksTableRef = document.getElementById('table-body');
 
 linksForm.addEventListener('submit', sendForm);
 
+// variables para los botones que se crearan al añadir links
+let btnEdit;
+
 
 
 
@@ -34,8 +37,13 @@ function inserRowLinksTable(linksFormData) {
     newLinksCellRef.appendChild(linkAdded);
 
     newLinksCellRef = newLinksRowRef.insertCell(1);
-    let btnAdded = document.createElement('button');
-    btnAdded.textContent = 'edit'
-    newLinksCellRef.appendChild(btnAdded);
-    
+    btnEdit = document.createElement('button');
+    let btnDelete = document.createElement('button');
+    btnEdit.innerHTML = '<i class="far fa-edit"></i>';
+    btnDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
+    newLinksCellRef.append(btnEdit, btnDelete);
+    btnEdit.id = 'btn-edit';
+    btnDelete.id = 'btn-delete';
 }
+
+

@@ -1,53 +1,47 @@
+// variables para los botones que se crearan al añadir links
+let btnEdit;
+let btnDelete;
+
+// declarar y llamar a las variables para el formulario
+// y añadir eventlisteners y functions
 const linksForm = document.getElementById("links-form");
 
 let linksTableRef = document.getElementById("table-body");
 
 linksForm.addEventListener("submit", sendForm);
 
-// variables para los botones que se crearan al añadir links
-let btnEdit;
-let btnDelete;
-
 // convertir contenido de formulario en FormData()
 function sendForm(event) {
   event.preventDefault();
   let linksFormData = new FormData(linksForm);
-  inserRowLinksTable(linksFormData);
+  let formObj = createFormObj(linksFormData);
+  insertRowLinksTable(formObj);
+  console.log(formObj);
+}
+
+// convertir el formData en un objeto
+function createFormObj(linksFormData) {
+  let formTitle = linksFormData.get("form-title");
+  let formContent = linksFormData.get("form-content");
+  return {
+    formTitle: formTitle,
+    formContent: formContent,
+  };
 }
 
 // añadir FormData a la tabla en celdas nuevas
-function inserRowLinksTable(linksFormData) {
+function insertRowLinksTable(formObj) {
   let newLinksRowRef = linksTableRef.insertRow(-1);
 
   let newLinksCellRef = newLinksRowRef.insertCell(0);
   let linkAdded = document.createElement("a");
-  linkAdded.href = linksFormData.get("form-content");
-  linkAdded.textContent = linksFormData.get("form-title");
+  linkAdded.href = formObj["formContent"];
+  linkAdded.textContent = formObj["formTitle"];
   linkAdded.target = "_blank";
   newLinksCellRef.appendChild(linkAdded);
 
   newLinksCellRef = newLinksRowRef.insertCell(1);
-  btnEdit = document.createElement("button");
   btnDelete = document.createElement("button");
-  btnEdit.innerHTML = '<i class="far fa-edit"></i>';
   btnDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
-  newLinksCellRef.append(btnEdit, btnDelete);
-  btnEdit.id = "btn-edit";
-  btnDelete.id = "btn-delete";
-
-  btnEdit.addEventListener('click', doSomething);
-  btnDelete.addEventListener('click', doSomethingToo);
-
+  newLinksCellRef.appendChild(btnDelete);
 }
-
-
-    
-function doSomething() {
-    btnEdit.style.color = 'green';
-    console.log('edit button working');
- }
-
- function doSomethingToo() {
-    btnDelete.style.color = 'red';
-    console.log('delete button working');
- }

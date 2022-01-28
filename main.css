@@ -82,6 +82,7 @@ button {
 
 .links-table tr, .links-table td {
     border: .5px solid var(--dark-black);
+    width: 100%;
 }
 
 .table-body a {

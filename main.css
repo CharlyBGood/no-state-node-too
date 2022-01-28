@@ -88,6 +88,7 @@ button {
 .table-body a {
     color: var(--orange-wheat);
     text-decoration: none;
+    line-break: anywhere;
 }
 
 .table-body button {

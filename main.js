@@ -1,5 +1,4 @@
 // variables para los botones que se crearan al añadir links
-let btnEdit;
 let btnDelete;
 
 // declarar y llamar a las variables para el formulario

@@ -23,20 +23,30 @@ function sendForm(event) {
 document.addEventListener("DOMContentLoaded", loadDOM);
 
 // function para recorrer el form y añadir el nuevo campo
-function loadDOM(event) {
+function loadDOM() {
   let linksObjArr = JSON.parse(localStorage.getItem("linksData"));
   linksObjArr.forEach(function (linksElem) {
     insertRowLinksTable(linksElem);
   });
 }
 
+// crear ID para cada nueva fila del form
+function getNewLinkId() {
+  let lastLinkId = localStorage.getItem("lastLinkId") || "0";
+  let newLinkId = JSON.parse(lastLinkId) + 1;
+  localStorage.setItem("lastLinkId", JSON.stringify(newLinkId));
+  return newLinkId;
+}
+
 // convertir el formData en un objeto
 function createFormObj(linksFormData) {
   let formTitle = linksFormData.get("form-title");
   let formContent = linksFormData.get("form-content");
+  let formId = getNewLinkId();
   return {
-    formTitle: formTitle,
-    formContent: formContent,
+    "formTitle": formTitle,
+    "formContent": formContent,
+    "formID": formId
   };
 }
 
@@ -53,8 +63,16 @@ function insertRowLinksTable(formObj) {
 
   newLinksCellRef = newLinksRowRef.insertCell(1);
   btnDelete = document.createElement("button");
-  btnDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
+  // btnDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
+  btnDelete.textContent = "X"
   newLinksCellRef.appendChild(btnDelete);
+
+  btnDelete.addEventListener("click", deleteEntry);
+
+  function deleteEntry(ev) {
+    ev.target.parentNode.parentNode.remove();
+    console.log("IT WORKS!!!");
+  }
 }
 
 function saveLinksObj(formObj) {

@@ -72,6 +72,7 @@ button {
     background-color: var(--soft-black);
     color: var(--wheat);
     cursor: pointer;
+    border-radius: .4em;
 }
 
 .links-table {

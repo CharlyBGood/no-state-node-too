@@ -31,8 +31,8 @@ body {
     color: var(--wheat);
     padding: .3em;
     text-decoration: none;
-    letter-spacing: .2em;
-    text-shadow: 3px 3px 3px #5a5959;
+    letter-spacing: .1em;
+    text-shadow: 2px 2px 2px #363636;
 }
 
 .container {

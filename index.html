@@ -1,52 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nostatenode</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/normalize.css">
-    <link rel="stylesheet" href="./styles/main.css">
-    <script src="https://kit.fontawesome.com/a9d601c6bd.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script
+      src="https://kit.fontawesome.com/a9d601c6bd.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <nav class="nav-container">
-        <a href="/"><h1>NoStateNode</h1></a>
-        <img src="./img/lunaticoin.png" alt="horse coin" width="80">
+      <a href="/"><h1>NoStateNode</h1></a>
+      <img src="./img/lunaticoin.png" alt="horse coin" width="80" />
     </nav>
     <div class="container">
-        <main class="main-container">
-            <form id="links-form" class="form-container" method="post">
-                <label for="form-title">Descriptive title</label>
-                <input type="text" name="form-title" id="form-title" class="form-title" placeholder="Title" required>
-                <label for="form-content">Link URL</label>
-                <input type="url" name="form-content" id="form-content" class="form-content" placeholder="URL" required>
-                <button class="form-btn" id="form-btn">
-                    <i class="fas fa-share-square"></i>
-                    Add
-                </button>
-            </form>
-        </main>
-        <aside class="table-container">
-            <table id="links-table" class="links-table">
-                <thead class="table-header">
-                    <tr>                        
-                        <th>LINK</th>
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body" class="table-body">
-                    
-                </tbody>
-            </table>
-        </aside>
+      <main class="main-container">
+        <form id="links-form" class="form-container" method="post">
+          <label for="form-title">Descriptive title</label>
+          <input
+            type="text"
+            name="form-title"
+            id="form-title"
+            class="form-title"
+            placeholder="Title"
+            oninvalid="this.setCustomValidity('Please complete this field with a title')"
+            oninput="this.setCustomValidity('')"
+            required
+          />
+          <label for="form-content">Link URL</label>
+          <input
+            type="url"
+            name="form-content"
+            id="form-content"
+            class="form-content"
+            placeholder="URL"
+            oninvalid="this.setCustomValidity('You need to complete this field with a valid URL')"
+            oninput="this.setCustomValidity('')"
+            required
+          />
+          <button class="form-btn" id="form-btn">
+            <i class="fas fa-share-square"></i>
+            Add
+          </button>
+        </form>
+      </main>
+      <aside class="table-container">
+        <table id="links-table" class="links-table">
+          <thead class="table-header">
+            <tr>
+              <th>LINK</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="table-body" class="table-body"></tbody>
+        </table>
+      </aside>
     </div>
     <footer>
-        <p>by <a href="https://github.com/CharlyBGood" target="_BLANK">Charly BGood</a></p>
+      <p>
+        by
+        <a href="https://github.com/CharlyBGood" target="_BLANK">Charly BGood</a>
+      </p>
     </footer>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

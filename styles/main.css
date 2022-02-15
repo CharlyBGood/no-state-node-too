@@ -31,8 +31,8 @@ body {
     color: var(--wheat);
     padding: .3em;
     text-decoration: none;
-    letter-spacing: .2em;
-    text-shadow: 3px 3px 3px #5a5959;
+    letter-spacing: .1em;
+    text-shadow: 2px 2px 2px #363636;
 }
 
 .container {
@@ -72,6 +72,11 @@ button {
     background-color: var(--soft-black);
     color: var(--wheat);
     cursor: pointer;
+    border-radius: .4em;
+}
+
+.form-btn {
+    padding: 1em;
 }
 
 .links-table {
@@ -101,7 +106,7 @@ button {
 
 .table-container {
     background-color: var(--soft-black);
-    margin: .5em 0;
+    margin: 2em 0;
     border-radius: .6em;
     flex: .4;
 }

@@ -32,21 +32,31 @@ function loadDOM() {
 
 // crear ID para cada nueva fila del form
 function getNewLinkId() {
-  let lastLinkId = localStorage.getItem("lastLinkId") || "0";
+  let lastLinkId = localStorage.getItem("lastLinkId") || "-1";
   let newLinkId = JSON.parse(lastLinkId) + 1;
   localStorage.setItem("lastLinkId", JSON.stringify(newLinkId));
   return newLinkId;
 }
 
+// eliminar linkObject del localStorage
+// function delLinkObj(formId) {
+//   let linksObjArr = JSON.parse(localStorage.getItem("linksData"));
+//   let linkIndexArr = linksObjArr.findIndex(element => element.formId === formId);
+//   linkIndexArr.splice(linkIndexArr, 1);
+//   let linksArrJSON = JSON.stringify(linksObjArr);
+//   localStorage.setItem("linksData", linksArrJSON);
+// }
+
 // convertir el formData en un objeto
 function createFormObj(linksFormData) {
   let formTitle = linksFormData.get("form-title");
   let formContent = linksFormData.get("form-content");
-  let formId = getNewLinkId();
+  // let formId = getNewLinkId();
+  let formId = 0;
   return {
     "formTitle": formTitle,
     "formContent": formContent,
-    "formID": formId
+    "formId": formId
   };
 }
 
@@ -63,15 +73,18 @@ function insertRowLinksTable(formObj) {
 
   newLinksCellRef = newLinksRowRef.insertCell(1);
   btnDelete = document.createElement("button");
-  // btnDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
-  btnDelete.textContent = "X"
+  btnDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
+  
   newLinksCellRef.appendChild(btnDelete);
 
   btnDelete.addEventListener("click", deleteEntry);
 
   function deleteEntry(ev) {
-    ev.target.parentNode.parentNode.remove();
+    let linkRow = ev.target.parentNode.parentNode;
+    linkRow.remove();
+    // delLinkObj();
     console.log("IT WORKS!!!");
+    console.log(linkRow);
   }
 }
 

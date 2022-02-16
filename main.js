@@ -1,6 +1,5 @@
 // variables para los botones que se crearan al añadir links
 let btnDelete;
-let deletedRow = false;
 
 // declarar y llamar a las variables para el formulario
 // y añadir eventlisteners y functions
@@ -39,13 +38,18 @@ function getNewLinkId() {
   return newLinkId;
 }
 
-// eliminar linkObject del localStorage
+// pasa como parámetro del formId de la fila que quiero eliminar
 function delLinkObj(formId) {
+  // obtener los links de la "base de datos" (localStorage) (convierto de JSON a Object)
   let linksObjArr = JSON.parse(localStorage.getItem("linksData"));
-  // let linkIndexArr = linksObjArr.findIndex(element => element.formId === formId);
-  // linkIndexArr.splice(linkIndexArr, 1);
-  // let linksArrJSON = JSON.stringify(linksObjArr);
-  // localStorage.setItem("linksData", linksArrJSON);
+  // busco la posición del link según su formId
+  let linkIndexArr = linksObjArr.findIndex(element => element.formId === formId);
+  // elimino el elemento que se corresponde con el formId
+  linksObjArr.splice(linkIndexArr, 1);
+  //  convierto a formato JSON de nuevo
+  let linksArrJSON = JSON.stringify(linksObjArr);
+  // vuelvo a guardar el array de form nuevamente en localStorage 
+  localStorage.setItem("linksData", linksArrJSON);
 }
 
 // convertir el formData en un objeto
@@ -63,6 +67,7 @@ function createFormObj(linksFormData) {
 // añadir FormData a la tabla en celdas nuevas
 function insertRowLinksTable(formObj) {
   let newLinksRowRef = linksTableRef.insertRow(-1);
+  newLinksRowRef.setAttribute("data-form-Id", formObj["formId"]);
 
   let newLinksCellRef = newLinksRowRef.insertCell(0);
   let linkAdded = document.createElement("a");
@@ -73,16 +78,18 @@ function insertRowLinksTable(formObj) {
 
   newLinksCellRef = newLinksRowRef.insertCell(1);
   btnDelete = document.createElement("button");
-  // btnDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
-  btnDelete.textContent = "Delete"
+  btnDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
+  // btnDelete.textContent = "Delete";
   newLinksCellRef.appendChild(btnDelete);
 
   btnDelete.addEventListener("click", deleteEntry);
   function deleteEntry(ev) {
-    deletedRow = true;
     let linkRow = ev.target.parentNode.parentNode;
+    let formId = linkRow.getAttribute("data-form-Id");
+    console.log(ev.target.tagName)
     linkRow.remove();
-    console.log(deletedRow);
+    delLinkObj(formId);
+    console.log(linkRow.getAttribute("data-form-Id"))
   }
 }
 

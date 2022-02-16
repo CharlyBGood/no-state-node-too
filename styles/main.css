@@ -75,6 +75,10 @@ button {
     border-radius: .4em;
 }
 
+button > * {
+    pointer-events: none;
+}
+
 .form-btn {
     padding: 1em;
 }

@@ -86,10 +86,8 @@ function insertRowLinksTable(formObj) {
   function deleteEntry(ev) {
     let linkRow = ev.target.parentNode.parentNode;
     let formId = linkRow.getAttribute("data-form-Id");
-    console.log(ev.target.tagName)
     linkRow.remove();
     delLinkObj(formId);
-    console.log(linkRow.getAttribute("data-form-Id"))
   }
 }
 

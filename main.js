@@ -84,6 +84,7 @@ function insertRowLinksTable(formObj) {
 
   btnDelete.addEventListener("click", deleteEntry);
   function deleteEntry(ev) {
+    alert("Are you sure you want to delete?");
     let linkRow = ev.target.parentNode.parentNode;
     let formId = linkRow.getAttribute("data-form-Id");
     linkRow.remove();

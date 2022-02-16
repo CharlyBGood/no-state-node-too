@@ -82,13 +82,22 @@ function insertRowLinksTable(formObj) {
   // btnDelete.textContent = "Delete";
   newLinksCellRef.appendChild(btnDelete);
 
-  btnDelete.addEventListener("click", deleteEntry);
-  function deleteEntry(ev) {
-    alert("Are you sure you want to delete?");
+  // btnDelete.addEventListener("click", deleteEntry);
+  // function deleteEntry(ev) {
+  //   let linkRow = ev.target.parentNode.parentNode;
+  //   let formId = linkRow.getAttribute("data-form-Id");
+  //   linkRow.remove();
+  //   delLinkObj(formId);
+  // }
+  btnDelete.addEventListener('click', confirDelete);
+  function confirDelete(ev) {
+    let opt = confirm("Are you sure you want to delete this entry?");
+    if (opt == true) {
     let linkRow = ev.target.parentNode.parentNode;
     let formId = linkRow.getAttribute("data-form-Id");
     linkRow.remove();
     delLinkObj(formId);
+    }
   }
 }
 

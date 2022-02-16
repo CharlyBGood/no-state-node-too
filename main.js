@@ -78,14 +78,15 @@ function insertRowLinksTable(formObj) {
 
   newLinksCellRef = newLinksRowRef.insertCell(1);
   btnDelete = document.createElement("button");
-  // btnDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
-  btnDelete.textContent = "Delete"
+  btnDelete.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
+  // btnDelete.textContent = "Delete";
   newLinksCellRef.appendChild(btnDelete);
 
   btnDelete.addEventListener("click", deleteEntry);
   function deleteEntry(ev) {
     let linkRow = ev.target.parentNode.parentNode;
     let formId = linkRow.getAttribute("data-form-Id");
+    console.log(ev.target.tagName)
     linkRow.remove();
     delLinkObj(formId);
     console.log(linkRow.getAttribute("data-form-Id"))

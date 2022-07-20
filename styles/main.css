@@ -73,6 +73,8 @@ button {
     color: var(--wheat);
     cursor: pointer;
     border-radius: .4em;
+    border: 1px solid var(--dark-black);
+    padding: .4em;
 }
 
 button > * {
@@ -92,12 +94,13 @@ button > * {
 .links-table tr, .links-table td {
     border: .5px solid var(--dark-black);
     width: 100%;
+    padding: .5em;
 }
 
 .table-body a {
     color: var(--orange-wheat);
     text-decoration: none;
-    line-break: anywhere;
+    line-break: auto;
 }
 
 .table-body button {
